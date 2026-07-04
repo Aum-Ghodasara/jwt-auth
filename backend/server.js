@@ -1,10 +1,12 @@
+require('dotenv').config(); 
+
 const express = require('express');
 const jwt = require('jsonwebtoken');
 
 const app = express();
 app.use(express.json());
 
-const JWT_SECRET = 'super_secret_key_123';
+const JWT_SECRET = process.env.JWT_SECRET; 
 const users = []; 
 
 app.post('/register', (req, res) => {
